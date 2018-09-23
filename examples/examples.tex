@@ -1,174 +1,32 @@
-\section{Übung}
+% ##########################################################################
+% ############################# Übungsblatt 01 #############################
+% ##########################################################################
+\section{Übungsblatt}
 \label{sec:uebung_01}
 
-% ##########################################################################
 % ############################### Aufgabe 01 ###############################
-% ##########################################################################
 \subsection{Aufgabe}
 \label{sec:uebung_01.aufgabe_01}
-Starten Sie das Skript.
+Lade die SQL-Datei \href{https://github.com/fh-trier/tgdb_ws1819/sql/schema.sql}{schema\_01.sql} von \href{https://github.com/fh-trier/tgdb_ws1819/sql/schema\_01.sql}{github.com} auf deinen PC herunter. Starten das SQL-Skript mittels SQL-Plus. Wie sieht zum starten des SQL-Skripts der Befehl in SQL-Plus aus?
 
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_01.loesung}
+\inputsql{sql/uebung_01/aufgabe_01.sql}
 
+% ############################### Aufgabe 02 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_02}
+Gebe dir alle Datensätze aus der Tablle \texttt{EMPLOYEES} aus.
 
-% ##########################################################################
-% ################################# Minted #################################
-% ##########################################################################
-\section{Minted}
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_02.loesung}
+\inputsql{sql/uebung_01/aufgabe_02.sql}
 
-% ############################### Begin-Block ##############################
-\subsection{Begin-Block}
+% ############################### Aufgabe 03 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_03}
+Modifiziere Aufgabe \ref{sec:uebung_01.aufgabe_02} so, dass ein ähnliches Ergebnis wie in Abbildung \ref{tbl:uebung_01.aufgabe_03} abgebildet ist, zurück geliefert wird.
 
-\subsubsection{AWK-Code}
-\begin{awkcode}
-  if NR > 3 {
-    print "0";
-  }
-\end{awkcode}
-
-\subsubsection{JSON}
-\begin{jsoncode}
-  {
-    "name": "Molecule Man",
-    "age": 29,
-    "secretIdentity": "Dan Jukes",
-    "powers": [
-      "Radiation resistance",
-      "Turning tiny",
-      "Radiation blast"
-    ]
-  }
-\end{jsoncode}
-
-\subsubsection{R-Code}
-\begin{rcode}
-  print(match(5, c(2,7,5,3))) #  5 is in 3rd place
-  print(seq(from=1,to=3,by=.5) %in% 1:3)
-\end{rcode}
-
-\subsubsection{SQL-Code}
-\begin{sqlcode}
-  SELECT *
-  FROM tab;
-\end{sqlcode}
-
-\subsubsection{XML}
-\begin{xmlcode}
-  <?xml version="1.0" encoding="UTF-8"?>
-  <note>
-    <to>Tove</to>
-    <from>Jani</from>
-    <heading>Reminder</heading>
-    <body>Don't forget me this weekend!</body>
-  </note>
-\end{xmlcode}
-
-% ################################ Input-File ###############################
-\subsection{Inputfile}
-
-\subsubsection{AWK-Code}
-\inputsql{examples/test.awk}
-
-\subsubsection{JSON}
-\inputsql{examples/test.json}
-
-\subsubsection{R-Code}
-\inputsql{examples/test.r}
-
-\subsubsection{SQL-Code}
-\inputsql{examples/test.sql}
-
-\subsubsection{XML}
-\inputsql{examples/test.xml}
-
-% ################################## Inline #################################
-\subsection{Inline}
-
-\subsubsection{SQL-Code}
-\sqlinline{SELECT * FROM tab;}
-
-
-% ##########################################################################
-% ################################ Info-Boxen ##############################
-% ##########################################################################
-\section{Info-Boxen}
-
-% ################################### WARN #################################
-\begin{warn-popup}
-  Warn-Popup
-\end{warn-popup}
-
-% ################################### INFO #################################
-\begin{info-popup}
-  Info-Popup
-\end{info-popup}
-
-% ################################# Example ################################
-\begin{example-popup}
-  Example-Popup
-\end{example-popup}
-
-
-% ##########################################################################
-% ################################# Akronyme ###############################
-% ##########################################################################
-\section{Akronyme}
-\acrfull{acr:sql}\\
-\acrlong{acr:sql}\\
-\acrshort{acr:sql}\\
-
-
-% ##########################################################################
-% ################################ Text-Boxen ##############################
-% ##########################################################################
-\section{Text-Boxen}
-\begin{textblock*}{\textwidth}(4cm,0cm)
-  Ich bin eine Textbox
-\end{textblock*}
-
-
-% ##########################################################################
-% ############################### Aufzählungen #############################
-% ##########################################################################
-\section{Aufzählungen}
-\begin{itemize}[itemsep=0pt]
-  \item Item
-  \item Item
-  \item Item
-\end{itemize}
-
-\begin{enumerate}[itemsep=0pt]
-  \item Item
-  \item Item
-  \item Item
-\end{enumerate}
-
-\begin{itemize}[itemsep=0pt]
-  \item[A)] Item
-  \item[B)] Item
-  \item[C)] Item
-\end{itemize}
-
-\begin{description}[itemsep=0pt]
-  \item[Itempoint 1] \mbox{} \\
-  \lipsum[1]
-  \bigskip
-
-  \item[Itempoint 2] \mbox{} \\
-  \lipsum[1]
-  \bigskip
-
-  \item[Itempoint 3] \mbox{} \\
-  \lipsum[1]
-\end{description}
-
-% ##########################################################################
-% ################################# Tabellen ###############################
-% ##########################################################################
-\section{Tabellen}
-
-% ################################# tabularx ###############################
 \begin{table}[H]
   \begin{tabularx}{\textwidth}{X|X|X|X}
     \textbf{FIRSTNAME} & \textbf{LASTNAME} & \textbf{BIRTHDAY} & \textbf{HIREDATE} \\
@@ -178,69 +36,106 @@ Starten Sie das Skript.
     Leni & Mayer & 1996-10-15 & 2009-02-10 \\
     $[$\dots$]$ & $[$\dots$]$ & $[$\dots$]$ & $[$\dots$]$ \\
   \end{tabularx}
-  \caption{tabularx - beispiel\_01}
-  \label{tbl:beispiel_01}
+  \caption{Abfrageergebnis Aufgabe \ref{sec:uebung_01.aufgabe_03}}
+  \label{tbl:uebung_01.aufgabe_03}
 \end{table}
 
-% ########################## tabularx - multicolumn ########################
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_03.loesung}
+\inputsql{sql/uebung_01/aufgabe_03.sql}
+
+% ############################### Aufgabe 04 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_04}
+Modifiziere Aufgabe \ref{sec:uebung_01.aufgabe_03} so, dass zusätzlich zu jedem Mitarbeiter die Stadt, die Postleitzahl, das Bundesland und das Land mit angezeigt wird.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_04.loesung}
+\inputsql{sql/uebung_01/aufgabe_04.sql}
+
+% ############################### Aufgabe 05 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_05}
+Gebe alle Länder und Ihre Bundesländer aus. Das Ergebnis der Abfrage sollte ähnlich dem aus Tabelle \ref{tbl:uebung_01.aufgabe_05} entsprechen.
+
 \begin{table}[H]
-  \begin{tabularx}{\textwidth}{X|X|X|X}
-    \textbf{FIRSTNAME} & \textbf{LASTNAME} & \textbf{BIRTHDAY} & \textbf{HIREDATE} \\
+  \begin{tabularx}{\textwidth}{X|X}
+    \textbf{Land} & \textbf{Bundesland} \\
     \hline\hline
-    \multicolumn{2}{c|}{\textbf{Multi-column}} & 1998-06-21 & 2007-04-18 \\
-    Henry & Großkreutz & \multicolumn{2}{c}{\textbf{Multi-column}} \\
-    \multicolumn{3}{c|}{\textbf{Multi-column}} & 2009-02-10 \\
-    $[$\dots$]$ & $[$\dots$]$ & $[$\dots$]$ & $[$\dots$]$ \\
+    Deutschland & Rheinland-Pfalz \\
+    Deutschland & Nordrhein-Westfalen \\
+    Deutschland & Saarland \\
+    $[$\dots$]$ & $[$\dots$]$ \\
   \end{tabularx}
-  \caption{tabularx - beispiel\_02}
-  \label{tbl:beispiel_02}
+  \caption{Abfrageergebnis Aufgabe \ref{sec:uebung_01.aufgabe_05}}
+  \label{tbl:uebung_01.aufgabe_05}
 \end{table}
 
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_05.loesung}
+\inputsql{sql/uebung_01/aufgabe_05.sql}
 
-% ############################ tabularx - multirow #########################
-\begin{table}[H]
-  \ttfamily
-  \begin{tabularx}{\textwidth}{X|X|X|X}
-    \textbf{FIRSTNAME} & \textbf{LASTNAME} & \textbf{BIRTHDAY} & \textbf{HIREDATE} \\
-    \hline\hline
-    \multirow{2}{*}{\textbf{Multi-row}} & Arbeitsscheu & 1998-06-21 & 2007-04-18 \\
-    & Großkreutz & 1990-09-01 & 2009-02-10 \\
-    Leni & Mayer & 1996-10-15 & \multirow{2}{*}{\textbf{Multi-row}} \\
-    $[$\dots$]$ & $[$\dots$]$ & $[$\dots$]$ & \\
-    \hline
-  \end{tabularx}
-  \caption{tabularx - beispiel\_03}
-  \label{tbl:beispiel_03}
-\end{table}
+% ############################### Aufgabe 06 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_06}
+Gebe alle Vertreter aus, die bereits Materialien an das Unternehmen verkauft haben.
 
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_06.loesung}
+\inputsql{sql/uebung_01/aufgabe_06.sql}
 
-% ################################## tabular ###############################
-\begin{table}[H]
-  \ttfamily
-  \begin{tabular}{l|l|l|l}
-    \cellcolor{light-grey} \textbf{FIRSTNAME} & \textbf{LASTNAME} & \textbf{BIRTHDAY} & \cellcolor{grey} \textbf{HIREDATE} \\
-    \hline\hline
-    Maximilian & Arbeitsscheu & \cellcolor{orange}1998-06-21 & 2007-04-18 \\
-    Henry & \cellcolor{red} Großkreutz & 1990-09-01 & 2009-02-10 \\
-    \cellcolor{green} Leni & Mayer & 1996-10-15 & \cellcolor{blue} 2009-02-10 \\
-    $[$\dots$]$ & \cellcolor{yellow} $[$\dots$]$ & \cellcolor{brown} $[$\dots$]$ & $[$\dots$]$ \\
-  \end{tabular}
-  \caption{tabular - beispiel\_04}
-  \label{tbl:beispiel_04}
-\end{table}
+% ############################### Aufgabe 07 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_07}
+Modifiziere Aufgabe \ref{sec:uebung_01.aufgabe_06} so, dass alle Materialien ausgegeben werden, die der Mitarbeiter \textit{Maximilian Arbeitsscheu} von \textit{Lena Hörnchen} bezogen hat.
 
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_07.loesung}
+\inputsql{sql/uebung_01/aufgabe_07.sql}
 
-% ################################## tabular 2 ###############################
-\begin{table}[H]
-  \begin{tabular}{llll}
-    \toprule[2pt]
-    \cellcolor{light-grey} \textbf{FIRSTNAME} & \textbf{LASTNAME} & \textbf{BIRTHDAY} & \cellcolor{grey} \textbf{HIREDATE} \\ \midrule[1.5pt]
-    Maximilian & Arbeitsscheu & \cellcolor{orange}1998-06-21 & 2007-04-18 \\ \midrule
-    Henry & \cellcolor{red} Großkreutz & 1990-09-01 & 2009-02-10 \\ \midrule
-    \cellcolor{green} Leni & Mayer & 1996-10-15 & \cellcolor{blue} 2009-02-10 \\ \midrule
-    $[$\dots$]$ & \cellcolor{yellow} $[$\dots$]$ & \cellcolor{brown} $[$\dots$]$ & $[$\dots$]$ \\
-    \bottomrule
-  \end{tabular}
-  \caption{tabular - beispiel\_05}
-  \label{tbl:beispiel_05}
-\end{table}
+% ############################### Aufgabe 08 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_08}
+Welchem Unternehmen gehört \textit{Lena Hörnchen} an?
+
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_08.loesung}
+\inputsql{sql/uebung_01/aufgabe_08.sql}
+
+% ############################### Aufgabe 09 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_09}
+Welchem Personen arbeiten noch für das Unternehmen von \textit{Lena Hörnchen}?
+
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_09.loesung}
+\inputsql{sql/uebung_01/aufgabe_09.sql}
+
+% ############################### Aufgabe 10 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_10}
+Versuche die Aufgabe \ref{sec:uebung_01.aufgabe_09} mittels \textit{Sub-Query} zu lösen.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_10.loesung}
+\inputsql{sql/uebung_01/aufgabe_10.sql}
+
+% ############################### Aufgabe 11 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_11}
+Füge dich als neuen Mitarbeiter in die Tabelle \texttt{EMPLOYEES} ein. Nutze die Funktion \texttt{NEW\_UUID()} (siehe Anhang \ref{app:funktionen.new_uuid}) um eine neue UUID zu generieren.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_11.loesung}
+\inputsql{sql/uebung_01/aufgabe_11.sql}
+
+% ############################### Aufgabe 12 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_12}
+Der Geschäftsführer möchte, dass bei dem Lieferanten \textit{Edelmetalle Benelux GBR} Stahlbleche in der Größe von \texttt{5000mm x 2500mm x 5mm - LxBxT} beschafft werden. Bei den Stahlblechen handelt es sich um \textit{Schwarzstahl} vom Typ \textit{S255}. Wähle ein freies Lager um die Bleche zu Lagern.
+
+Wie sieht für den oben beschrieben Vorgang der SQL-Befehl aus?
+
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_12.loesung}
+\inputsql{sql/uebung_01/aufgabe_12.sql}
