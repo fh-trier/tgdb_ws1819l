@@ -33,7 +33,7 @@ TEX_TARGET:=${FILE_NAME:%=%.tex}
 # HARDLINK_FILE: Name of the document to be linked under the path HARDLINK_PATH.
 FSD?=${HOME}/Dokumente/Studium/Fachschaftsdaten
 HARDLINK_PATH:=${FSD}/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819
-HARDLINK_FILE:=Tutorium_WS1819.pdf
+HARDLINK_FILE:=Tutorium_WS1819_-_Loesungen.pdf
 
 
 # PDF_TARGET
