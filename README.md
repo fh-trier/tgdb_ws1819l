@@ -12,8 +12,7 @@ $ docker run \
   --rm \
   --user="$(shell id -u):$(shell id -g)" \
   --net="none" \
-  --env VERSION=${VERSION} \
-  --volume="${PWD}:/data" ${IMAGE} \
+  --volume="${PWD}:/data" volkerraschek/docker-latex:latest \
   make latexmk
 ```
 
