@@ -72,7 +72,7 @@ Modifiziere Aufgabe \ref{sec:uebung_01.aufgabe_03} so, dass nur Mitarbeiter ange
 % ############################### Aufgabe 05 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_01.aufgabe_05}
-Gebe alle Mitarbeiter aus, die an vierter Stelle ein \textbf{I} oder ein \textbf{ß} besitzen.
+Gebe alle Mitarbeiter aus, die an vierter Stelle ihres Nachnamens ein \textbf{i} oder ein \textbf{ß} besitzen.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_05.loesung}
@@ -83,6 +83,11 @@ Gebe alle Mitarbeiter aus, die an vierter Stelle ein \textbf{I} oder ein \textbf
 \label{sec:uebung_01.aufgabe_06}
 Gebe alle Mitarbeiter aus, die in den 90er Jahren geboren sind.
 
+\begin{info-popup}
+  Nutze die Funktion \sqlinline{TO_CHAR(datum, 'format')} um ein Datum in einen CHAR-Value zu formatieren - \href{https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions180.htm}{Dokumentation}.
+
+  \end{info-popup}
+
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_06.loesung}
 \inputsql{sql/uebung_01/aufgabe_06.sql}
@@ -90,7 +95,7 @@ Gebe alle Mitarbeiter aus, die in den 90er Jahren geboren sind.
 % ############################### Aufgabe 07 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_01.aufgabe_07}
-Gebe alle Kontakte aus, die der Firma \textbf{Thyssen} angehören uns suche nach Personen, deren Telefonnummer auf \textbf{0221} endet.
+Gebe alle Kontakte aus, die der Firma \textbf{Thyssen} angehören und suche nach Personen, deren Telefonnummer auf \textbf{0211} endet.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_07.loesung}
@@ -112,7 +117,7 @@ Lasse dir mittels \sqlinline{WHERE ROWNUM < 10} in der \texttt{WHERE}-Bedingung 
 
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_09.loesung}
-\textit{Deine Lösung}
+\inputsql{sql/uebung_01/aufgabe_09.sql}
 
 % ############################### Aufgabe 10 ###############################
 \subsection{Aufgabe}
