@@ -1,1 +1,2 @@
--- Deine Lösung
+SELECT *
+FROM employees;
