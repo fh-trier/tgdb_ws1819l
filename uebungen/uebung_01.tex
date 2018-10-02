@@ -9,6 +9,11 @@
 \label{sec:uebung_01.aufgabe_01}
 Lade die SQL-Datei \href{https://raw.githubusercontent.com/fh-trier/tgdb_ws1819/master/sql/schema_01.sql}{schema\_01.sql} von \href{https://raw.githubusercontent.com/fh-trier/tgdb_ws1819/master/sql/schema_01.sql}{github.com} auf deinen PC herunter. Starten das SQL-Skript mittels SQL-Plus. Wie sieht zum starten des SQL-Skripts der Befehl in SQL-Plus aus?
 
+\begin{info-popup}
+  Nach laden des Schemas können alle Tabellen oder Views einen Befehl in SQL-Plus ausgegeben werden. \\
+  \sqlinline{SELECT * FROM tab;}
+\end{info-popup}
+
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_01.loesung}
 \inputsql{sql/uebung_01/aufgabe_01.sql}
@@ -18,6 +23,16 @@ Lade die SQL-Datei \href{https://raw.githubusercontent.com/fh-trier/tgdb_ws1819/
 \label{sec:uebung_01.aufgabe_02}
 Gebe dir alle Datensätze aus der Tablle \texttt{EMPLOYEES} aus.
 
+\begin{info-popup}
+Du kannst die Ausgabe in SQL-Plus anpassen. Nutze dazu den SQL-Plus Befehl
+\texttt{COLUMN <spalte> FORMAT <format>}
+
+Beispielsweise: \texttt{COLUMN EMPLOYEE\_FIRSTNAME FORMAT a20}.
+
+Eine vordefinierte Formatierungseinstellung ist auf \href{https://raw.githubusercontent.com/fh-trier/tgdb_ws1819/master/sql/sqlplus-settings.sql}{github.com} hinterlegt.
+
+\end{info-popup}
+
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_02.loesung}
 \inputsql{sql/uebung_01/aufgabe_02.sql}
@@ -25,9 +40,10 @@ Gebe dir alle Datensätze aus der Tablle \texttt{EMPLOYEES} aus.
 % ############################### Aufgabe 03 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_01.aufgabe_03}
-Modifiziere Aufgabe \ref{sec:uebung_01.aufgabe_02} so, dass ein ähnliches Ergebnis wie in Abbildung \ref{tbl:uebung_01.aufgabe_03} abgebildet ist, zurück geliefert wird.
+Modifiziere Aufgabe \ref{sec:uebung_01.aufgabe_02} so, dass ein ähnliches Ergebnis zurück geliefert wird wie in Abbildung \ref{tbl:uebung_01.aufgabe_03}.
 
 \begin{table}[H]
+  \ttfamily
   \begin{tabularx}{\textwidth}{X|X|X|X}
     \textbf{FIRSTNAME} & \textbf{LASTNAME} & \textbf{BIRTHDAY} & \textbf{HIREDATE} \\
     \hline\hline
@@ -36,7 +52,7 @@ Modifiziere Aufgabe \ref{sec:uebung_01.aufgabe_02} so, dass ein ähnliches Ergeb
     Leni & Mayer & 1996-10-15 & 2009-02-10 \\
     $[$\dots$]$ & $[$\dots$]$ & $[$\dots$]$ & $[$\dots$]$ \\
   \end{tabularx}
-  \caption{Abfrageergebnis Aufgabe \ref{sec:uebung_01.aufgabe_03}}
+  \caption{Beispielhaftes Abfrageergebnis zu Aufgabe \ref{sec:uebung_01.aufgabe_03}}
   \label{tbl:uebung_01.aufgabe_03}
 \end{table}
 
@@ -47,7 +63,7 @@ Modifiziere Aufgabe \ref{sec:uebung_01.aufgabe_02} so, dass ein ähnliches Ergeb
 % ############################### Aufgabe 04 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_01.aufgabe_04}
-Modifiziere Aufgabe \ref{sec:uebung_01.aufgabe_03} so, dass zusätzlich zu jedem Mitarbeiter die Stadt, die Postleitzahl, das Bundesland und das Land mit angezeigt wird.
+Modifiziere Aufgabe \ref{sec:uebung_01.aufgabe_03} so, dass nur Mitarbeiter angezeigt werden, deren Vorname mit einem \textbf{A} beginnt.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_04.loesung}
@@ -56,20 +72,7 @@ Modifiziere Aufgabe \ref{sec:uebung_01.aufgabe_03} so, dass zusätzlich zu jedem
 % ############################### Aufgabe 05 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_01.aufgabe_05}
-Gebe alle Länder und Ihre Bundesländer aus. Das Ergebnis der Abfrage sollte ähnlich dem aus Tabelle \ref{tbl:uebung_01.aufgabe_05} entsprechen.
-
-\begin{table}[H]
-  \begin{tabularx}{\textwidth}{X|X}
-    \textbf{Land} & \textbf{Bundesland} \\
-    \hline\hline
-    Deutschland & Rheinland-Pfalz \\
-    Deutschland & Nordrhein-Westfalen \\
-    Deutschland & Saarland \\
-    $[$\dots$]$ & $[$\dots$]$ \\
-  \end{tabularx}
-  \caption{Abfrageergebnis Aufgabe \ref{sec:uebung_01.aufgabe_05}}
-  \label{tbl:uebung_01.aufgabe_05}
-\end{table}
+Gebe alle Mitarbeiter aus, die an vierter Stelle ein \textbf{I} oder ein \textbf{ß} besitzen.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_05.loesung}
@@ -78,7 +81,7 @@ Gebe alle Länder und Ihre Bundesländer aus. Das Ergebnis der Abfrage sollte ä
 % ############################### Aufgabe 06 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_01.aufgabe_06}
-Gebe alle Vertreter aus, die bereits Materialien an das Unternehmen verkauft haben.
+Gebe alle Mitarbeiter aus, die in den 90er Jahren geboren sind.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_06.loesung}
@@ -87,7 +90,7 @@ Gebe alle Vertreter aus, die bereits Materialien an das Unternehmen verkauft hab
 % ############################### Aufgabe 07 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_01.aufgabe_07}
-Modifiziere Aufgabe \ref{sec:uebung_01.aufgabe_06} so, dass alle Materialien ausgegeben werden, die der Mitarbeiter \textit{Maximilian Arbeitsscheu} von \textit{Lena Hörnchen} bezogen hat.
+Gebe alle Kontakte aus, die der Firma \textbf{Thyssen} angehören uns suche nach Personen, deren Telefonnummer auf \textbf{0221} endet.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_07.loesung}
@@ -105,37 +108,17 @@ Welchem Unternehmen gehört \textit{Lena Hörnchen} an?
 % ############################### Aufgabe 09 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_01.aufgabe_09}
-Welchem Personen arbeiten noch für das Unternehmen von \textit{Lena Hörnchen}?
+Lasse dir mittels \sqlinline{WHERE ROWNUM < 10} in der \texttt{WHERE}-Bedingung eines \texttt{SELECT}-Statements die ersten 10 Datensätze aus der Tabelle \texttt{CONTACTS} anzeigen. Was fällt dir auf?
 
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_09.loesung}
-\inputsql{sql/uebung_01/aufgabe_09.sql}
+\textit{Deine Lösung}
 
 % ############################### Aufgabe 10 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_01.aufgabe_10}
-Versuche die Aufgabe \ref{sec:uebung_01.aufgabe_09} mittels \textit{Sub-Query} zu lösen.
+Lasse dir alle Kontakte ausgeben die keine E-Mail Adresse haben.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_10.loesung}
 \inputsql{sql/uebung_01/aufgabe_10.sql}
-
-% ############################### Aufgabe 11 ###############################
-\subsection{Aufgabe}
-\label{sec:uebung_01.aufgabe_11}
-Füge dich als neuen Mitarbeiter in die Tabelle \texttt{EMPLOYEES} ein. Nutze die Funktion \texttt{NEW\_UUID()} (siehe Anhang \ref{app:funktionen.new_uuid}) um eine neue UUID zu generieren.
-
-\subsubsection*{Lösung}
-\label{sec:uebung_01.aufgabe_11.loesung}
-\inputsql{sql/uebung_01/aufgabe_11.sql}
-
-% ############################### Aufgabe 12 ###############################
-\subsection{Aufgabe}
-\label{sec:uebung_01.aufgabe_12}
-Der Geschäftsführer möchte, dass bei dem Lieferanten \textit{Edelmetalle Benelux GBR} Stahlbleche in der Größe von \texttt{5000mm x 2500mm x 5mm - LxBxT} beschafft werden. Bei den Stahlblechen handelt es sich um \textit{Schwarzstahl} vom Typ \textit{S255}. Wähle ein freies Lager um die Bleche zu Lagern.
-
-Wie sieht für den oben beschrieben Vorgang der SQL-Befehl aus?
-
-\subsubsection*{Lösung}
-\label{sec:uebung_01.aufgabe_12.loesung}
-\inputsql{sql/uebung_01/aufgabe_12.sql}
