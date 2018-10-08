@@ -10,7 +10,7 @@
 Lade die SQL-Datei \href{https://raw.githubusercontent.com/fh-trier/tgdb_ws1819/master/sql/schema_01.sql}{schema\_01.sql} von \href{https://raw.githubusercontent.com/fh-trier/tgdb_ws1819/master/sql/schema_01.sql}{github.com} auf deinen PC herunter. Starten das SQL-Skript mittels SQL-Plus. Wie sieht zum starten des SQL-Skripts der Befehl in SQL-Plus aus?
 
 \begin{info-popup}
-  Nach laden des Schemas können alle Tabellen oder Views mit einem Befehl in SQL-Plus ausgegeben werden. \\
+  Nach laden des Schemas können alle Tabellen und Views mit einem Befehl in SQL-Plus ausgegeben werden. \\
   \sqlinline{SELECT * FROM tab;}
 \end{info-popup}
 
@@ -113,7 +113,7 @@ Welchem Unternehmen gehört \textit{Lena Hörnchen} an?
 % ############################### Aufgabe 09 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_01.aufgabe_09}
-Lasse dir mittels \sqlinline{WHERE ROWNUM < 10} in der \texttt{WHERE}-Bedingung eines \texttt{SELECT}-Statements die ersten 10 Datensätze aus der Tabelle \texttt{CONTACTS} anzeigen. Was fällt dir auf?
+Lasse dir mittels \sqlinline{WHERE ROWNUM <= 10} in der \texttt{WHERE}-Bedingung eines \texttt{SELECT}-Statements die ersten 10 Datensätze aus der Tabelle \texttt{CONTACTS} anzeigen. Was fällt dir auf?
 
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_09.loesung}
@@ -131,7 +131,7 @@ Lasse dir alle Kontakte ausgeben die keine E-Mail Adresse haben.
 % ############################### Aufgabe 11 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_01.aufgabe_11}
-Gebe eine Liste aus, in welchen Regalen das Material \textbf{Edelstahl} vom Typ \textbf{1.4301, Geschliffen} vorhanden ist.
+Gebe eine Liste aus, in welchen Regalen das Material \textbf{Edelstahl} vom Typ \textbf{1.4301, Geschliffen} vorhanden ist. Eine Beispielausgabe findest du unter der Tabelle \ref{tbl:uebung_01.aufgabe_11}
 
 \begin{table}[H]
   \ttfamily
@@ -143,7 +143,7 @@ Gebe eine Liste aus, in welchen Regalen das Material \textbf{Edelstahl} vom Typ 
     B & 20 \\
     $[$\dots$]$ & $[$\dots$]$ \\
   \end{tabularx}
-  \caption{Beispielhaftes Abfrageergebnis zu Aufgabe \ref{sec:uebung_01.aufgabe_11}}
+  \caption{Examplarisches Abfrageergebnis für Aufgabe \ref{sec:uebung_01.aufgabe_11}}
   \label{tbl:uebung_01.aufgabe_11}
 \end{table}
 
@@ -151,11 +151,39 @@ Gebe eine Liste aus, in welchen Regalen das Material \textbf{Edelstahl} vom Typ 
 \label{sec:uebung_01.aufgabe_11.loesung}
 \inputsql{sql/uebung_01/aufgabe_11.sql}
 
+
 % ############################### Aufgabe 12 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_01.aufgabe_12}
-Versuche die Aufgabe \ref{sec:uebung_01.aufgabe_11} mit einer \sqlinline{WHERE}-Bedingungen zu lösen.
+Versuche die Spalten aus Aufgabe \ref{sec:uebung_01.aufgabe_11} zu einer Spalte zu konkatenieren - \href{https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions026.htm}{Dokumentation}.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_12.loesung}
 \inputsql{sql/uebung_01/aufgabe_12.sql}
+
+% ############################### Aufgabe 13 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_13}
+Versuche die Aufgabe \ref{sec:uebung_01.aufgabe_11} mit einer \sqlinline{WHERE}-Bedingungen zu lösen.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_13.loesung}
+\inputsql{sql/uebung_01/aufgabe_13.sql}
+
+% ############################### Aufgabe 14 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_14}
+Welche Firmen haben ihren Sitz im Ausland?
+
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_14.loesung}
+\inputsql{sql/uebung_01/aufgabe_14.sql}
+
+% ############################### Aufgabe 15 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_15}
+Welche Mitarbeiter haben noch keinen Eintrag in der Tabelle \texttt{STORAGE}? Löse die Aufgabe per \texttt{JOIN}-Statement.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_15.loesung}
+\inputsql{sql/uebung_01/aufgabe_15.sql}
