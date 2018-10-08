@@ -86,7 +86,7 @@ Gebe alle Mitarbeiter aus, die in den 90er Jahren geboren sind.
 \begin{info-popup}
   Nutze die Funktion \sqlinline{TO_CHAR(datum, 'format')} um ein Datum in einen CHAR-Value zu formatieren - \href{https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions180.htm}{Dokumentation}.
 
-  \end{info-popup}
+\end{info-popup}
 
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_06.loesung}
@@ -127,3 +127,35 @@ Lasse dir alle Kontakte ausgeben die keine E-Mail Adresse haben.
 \subsubsection*{Lösung}
 \label{sec:uebung_01.aufgabe_10.loesung}
 \inputsql{sql/uebung_01/aufgabe_10.sql}
+
+% ############################### Aufgabe 11 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_11}
+Gebe eine Liste aus, in welchen Regalen das Material \textbf{Edelstahl} vom Typ \textbf{1.4301, Geschliffen} vorhanden ist.
+
+\begin{table}[H]
+  \ttfamily
+  \begin{tabularx}{\textwidth}{X|X}
+    \textbf{SHELF\_NAME} & \textbf{SHELF\_NUMBER} \\
+    \hline\hline
+    A & 30 \\
+    A & 50 \\
+    B & 20 \\
+    $[$\dots$]$ & $[$\dots$]$ \\
+  \end{tabularx}
+  \caption{Beispielhaftes Abfrageergebnis zu Aufgabe \ref{sec:uebung_01.aufgabe_11}}
+  \label{tbl:uebung_01.aufgabe_11}
+\end{table}
+
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_11.loesung}
+\inputsql{sql/uebung_01/aufgabe_11.sql}
+
+% ############################### Aufgabe 12 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_01.aufgabe_12}
+Versuche die Aufgabe \ref{sec:uebung_01.aufgabe_11} mit einer \sqlinline{WHERE}-Bedingungen zu lösen.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_01.aufgabe_12.loesung}
+\inputsql{sql/uebung_01/aufgabe_12.sql}
