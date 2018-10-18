@@ -1,0 +1,82 @@
+% ##########################################################################
+% ############################# Übungsblatt 02 #############################
+% ##########################################################################
+\section{Übungsblatt}
+\label{sec:uebung_02}
+
+% ############################### Aufgabe 01 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_02.aufgabe_01}
+Verschaffe dir einen Überblick über das \hyperref[app:er-diagramm]{Datenbankmodell}. Dazu gehören die Beziehungen der Tabellen untereinander.
+
+
+% ############################### Aufgabe 02 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_02.aufgabe_02}
+Füge in die Tabelle \texttt{EMPLOYEES} drei neue Mitarbeiter ein. Nutze um einen Primary-Key zu erzeugen die Funktion \nameref{app:funktionen.new_uuid}.
+
+Die Funktion lässt sich in \texttt{INSERT}-Statements per \texttt{NEW\_UUID()} aufrufen.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_02.aufgabe_02.loesung}
+\inputsql{sql/uebung_02/aufgabe_02.sql}
+
+% ############################### Aufgabe 03 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_02.aufgabe_03}
+Füge ein neues Regal mit dem Namen X50 und X100 in die Tabelle \texttt{SHELFS} ein. Nutze wie in Aufgabe \ref{sec:uebung_02.aufgabe_02} die \nameref{app:funktionen.new_uuid} zum erzeugen eines Primary Keys.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_02.aufgabe_03.loesung}
+\inputsql{sql/uebung_02/aufgabe_03.sql}
+
+% ############################### Aufgabe 04 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_02.aufgabe_04}
+Füge das Metall Titan als Typ Geschliffen und Träne als auch Gold hinzu.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_02.aufgabe_04.loesung}
+\inputsql{sql/uebung_02/aufgabe_04.sql}
+
+% ############################### Aufgabe 05 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_02.aufgabe_05}
+Füge den Firmenvertreter Michael Jakobs von der Firma Willems Metallhandel GmbH hinzu.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_02.aufgabe_05.loesung}
+\inputsql{sql/uebung_02/aufgabe_05.sql}
+
+% ############################### Aufgabe 06 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_02.aufgabe_06}
+Einer deiner Kollegen, die in Aufgabe \ref{sec:uebung_02.aufgabe_02} hinzugefügt wurden kauften bei Michael Jakobs am 14. Juli 2018 zwei Titanplatten vom Typ Geschliffen in der Größe 5000x4000mm. Die zwei Platten befinden sich im Lager X100. Eine weitere Titanplatte vom Typ Träne in der Größe 2500x1000mm wurde über die Firma  Willems Metallhandel GmbH am 17. August 2018 bezogen und in das Lager X100 eingelagert.
+
+\begin{info-popup}
+  Die Spalte \texttt{SURFACE\_AREA} braucht nicht befüllt zu werden. Es handelt sich bei der Spalte um eine \href{https://oracle-base.com/articles/11g/virtual-columns-11gr1}{Virtual-Column}, die die Fläche der Platte oder des Bleches in $mm^2$ berechnet.
+\end{info-popup}
+
+\subsubsection*{Lösung}
+\label{sec:uebung_02.aufgabe_06.loesung}
+\inputsql{sql/uebung_02/aufgabe_06.sql}
+
+% ############################### Aufgabe 07 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_02.aufgabe_07}
+Es ist ein Fehler unterlaufen. Michael Jakos konnte niemals vor dem 1. August im Namen seiner Firma Waren verkaufen, da dieser erst zum 1. August eingestellt wurde.
+
+Ändere den Ansprechpartner alle Lageraufträge die vor dem 1. August durch Michael Jakobs getätigt wurden auf Sabrina Böckel ab. Sabrina Böckels Handynummer is die +49 0554 788112784, die E-Mail ist sabrina.boeckel@willems-gmbh.de und die Festnetznummer lautet +49 7854 22145 985.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_02.aufgabe_07.loesung}
+\inputsql{sql/uebung_02/aufgabe_07.sql}
+
+% ############################### Aufgabe 08 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_02.aufgabe_08}
+Lösche alle Lagereinträge, bei denen es sich um Aluminium Geschliffen im Regal A80 handelt, die von Lena Hörnchen hinzugefügt wurden.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_02.aufgabe_08.loesung}
+\inputsql{sql/uebung_02/aufgabe_08.sql}
