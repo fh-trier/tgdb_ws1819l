@@ -1,1 +1,2 @@
--- Deine Lösung
+SELECT sr.*
+FROM session_roles sr;
