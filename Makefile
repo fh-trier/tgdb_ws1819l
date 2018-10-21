@@ -107,3 +107,12 @@ delete-hardlink:
 	then \
 		rm -R ${HARDLINK_PATH}/${HARDLINK_FILE}; \
 	fi;
+
+destroy-schema:
+	./sh/delete-schema.sh
+
+import-model:
+	./sh/import-model.sh
+
+execute-solutions:
+	./sh/execute-solutions.sh
