@@ -75,7 +75,7 @@ Räume dem Benutzer \texttt{PESCHM} und der Rolle \texttt{FH\_TRIER} das Recht e
 \label{sec:uebung_03.aufgabe_07.loesung}
 \inputsql{sql/uebung_03/aufgabe_07.sql}
 
-% ############################### Aufgabe 07 ###############################
+% ############################### Aufgabe 08 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_03.aufgabe_08}
 Entziehe Benutzer \texttt{PESCHM} und der Rolle \texttt{FH\_TRIER} die unter Aufgabe \ref{sec:uebung_03.aufgabe_07} eingeräumten Rechte.
@@ -83,3 +83,77 @@ Entziehe Benutzer \texttt{PESCHM} und der Rolle \texttt{FH\_TRIER} die unter Auf
 \subsubsection*{Lösung}
 \label{sec:uebung_03.aufgabe_08.loesung}
 \inputsql{sql/uebung_03/aufgabe_08.sql}
+
+% ############################### Aufgabe 09 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_03.aufgabe_09}
+Gebe von allen Mitarbeitern das Geburtsdatum aus und berechne das Alter jedes Mitarbeiters in Jahren, und Monaten. Konkateniere die Spalten soweit wie Möglich zu einer Spalte zusammen wie in Aufgabe \ref{sec:uebung_01.aufgabe_12}.
+
+\begin{info-popup}
+  Nutze die Funktion \texttt{months\_between()} und \texttt{mod()} zur Lösung der Aufgabe.
+
+  \begin{sqlcode}
+    -- months_between
+    SELECT months_between(TO_DATE('10', 'MM'), TO_DATE('04', 'MM'))
+    FROM dual;
+
+    -- mod (modulo)
+    SELECT mod(9,4)
+    FROM dual;
+  \end{sqlcode}
+\end{info-popup}
+
+\subsubsection*{Lösung}
+\label{sec:uebung_03.aufgabe_09.loesung}
+\inputsql{sql/uebung_03/aufgabe_09.sql}
+
+% ############################### Aufgabe 10 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_03.aufgabe_10}
+Gebe das Datum aus, dass heute vor 2 Jahren, 7 Monaten, 24 Tagen, 4 Stunden und 56 Minuten gewesen ist.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_03.aufgabe_10.loesung}
+\inputsql{sql/uebung_03/aufgabe_10.sql}
+
+% ############################### Aufgabe 11 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_03.aufgabe_11}
+Gebe für jeden Mitarbeiter die Beschäftigungsdauer in Jahren aus.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_03.aufgabe_11.loesung}
+\inputsql{sql/uebung_03/aufgabe_11.sql}
+
+% ############################### Aufgabe 12 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_03.aufgabe_12}
+Erweitere die Tabelle \texttt{EMPLOYEES} um eine Spalte mit dem Gehalt (\texttt{SALARY}). Jeder Mitarbeiter erhält ein Einstiegsgehalt von 2000\euro{}. Zusätzlich erhält jeder Mitarbeiter nach Beschäfti-gungsdauer einen prozentualen Aufschlag gestaffelt nach der folgenden \hyperref[tbl:uebung_03.aufgabe_12]{Tabelle}.
+
+\begin{table}[H]
+  \ttfamily
+  \centering
+  \begin{tabular}{l|l}
+    \textbf{Beschäftigungsdauer} & \textbf{Zuschlag} \\
+    \hline\hline
+    $0<=x<5$ Jahre & 0\% \\
+    $5<=x<7,5$ Jahre & 5\% \\
+    $7,5<=x<10$ Jahre & 10\% \\
+    $10<=x<12,5$ Jahre & 12,5\% \\
+    $12,5<=x$ Jahre & 15\% \\
+  \end{tabular}
+  \label{tbl:uebung_03.aufgabe_12}
+\end{table}
+
+\subsubsection*{Lösung}
+\label{sec:uebung_03.aufgabe_12.loesung}
+\inputsql{sql/uebung_03/aufgabe_12.sql}
+
+% ############################### Aufgabe 13 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_03.aufgabe_13}
+Konkateniere Zeichensätze zu folgendem Satz. \textit{<FIRSTNAME>} ist \textit{<JAHRE>} alt. Gebe diesen Satz für alle Mitarbeiter aus.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_03.aufgabe_13.loesung}
+\inputsql{sql/uebung_03/aufgabe_13.sql}
