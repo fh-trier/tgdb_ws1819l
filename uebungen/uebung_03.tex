@@ -128,7 +128,7 @@ Gebe für jeden Mitarbeiter die Beschäftigungsdauer in Jahren aus.
 % ############################### Aufgabe 12 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_03.aufgabe_12}
-Erweitere die Tabelle \texttt{EMPLOYEES} um eine Spalte mit dem Gehalt (\texttt{SALARY}). Jeder Mitarbeiter erhält ein Einstiegsgehalt von 2000\euro{}. Zusätzlich erhält jeder Mitarbeiter nach Beschäfti-gungsdauer einen prozentualen Aufschlag gestaffelt nach der folgenden \hyperref[tbl:uebung_03.aufgabe_12]{Tabelle}.
+Erweitere die Tabelle \texttt{EMPLOYEES} um eine Spalte mit dem Gehalt (\texttt{SALARY}) und den Beschäfti-gungsjahren \texttt{HIRE\_YEAR} . Jeder Mitarbeiter erhält ein Einstiegsgehalt von 2000\euro{}. Zusätzlich erhält jeder Mitarbeiter nach Beschäftigungsdauer einen prozentualen Aufschlag gestaffelt nach der folgenden \hyperref[tbl:uebung_03.aufgabe_12]{Tabelle}.
 
 \begin{table}[H]
   \ttfamily
@@ -137,10 +137,10 @@ Erweitere die Tabelle \texttt{EMPLOYEES} um eine Spalte mit dem Gehalt (\texttt{
     \textbf{Beschäftigungsdauer} & \textbf{Zuschlag} \\
     \hline\hline
     $0<=x<5$ Jahre & 0\% \\
-    $5<=x<7,5$ Jahre & 5\% \\
-    $7,5<=x<10$ Jahre & 10\% \\
-    $10<=x<12,5$ Jahre & 12,5\% \\
-    $12,5<=x$ Jahre & 15\% \\
+    $5<=x<7$ Jahre & 5\% \\
+    $7<=x<10$ Jahre & 10\% \\
+    $10<=x<12$ Jahre & 12,5\% \\
+    $12<=x$ Jahre & 15\% \\
   \end{tabular}
   \label{tbl:uebung_03.aufgabe_12}
 \end{table}
@@ -152,7 +152,7 @@ Erweitere die Tabelle \texttt{EMPLOYEES} um eine Spalte mit dem Gehalt (\texttt{
 % ############################### Aufgabe 13 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_03.aufgabe_13}
-Konkateniere Zeichensätze zu folgendem Satz. \textit{<FIRSTNAME>} ist \textit{<JAHRE>} alt. Gebe diesen Satz für alle Mitarbeiter aus.
+Konkateniere Zeichensätze zu folgendem Satz. \textit{\texttt{FIRSTNAME} ist \texttt{JAHRE} alt}. Gebe diesen Satz für alle Mitarbeiter aus.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_03.aufgabe_13.loesung}
