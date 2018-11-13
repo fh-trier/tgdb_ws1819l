@@ -1,0 +1,99 @@
+% ##########################################################################
+% ############################# Übungsblatt 04 #############################
+% ##########################################################################
+\section{Übungsblatt}
+\label{sec:uebung_04}
+
+% ############################### Aufgabe 01 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_04.aufgabe_01}
+Lassen Sie sich den Inhalt der View \texttt{JOINED\_STORAGE} ausgeben. Erweitern Sie die Abfrage um die Mitarbeiter, die das Material hinzugefügt haben um die Spalten \texttt{EMPLOYEE\_FIRSTNAME} und \texttt{EMPLOYEE\_LASTNAME}.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_04.aufgabe_01.loesung}
+\inputsql{sql/uebung_04/aufgabe_01.sql}
+
+% ############################### Aufgabe 02 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_04.aufgabe_02}
+Geben sie die Anzahl aus, wie viele gruppierte Einträge jeder Mitarbeiter im Lager hinterlegt hat.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_04.aufgabe_02.loesung}
+\inputsql{sql/uebung_04/aufgabe_02.sql}
+
+% ############################### Aufgabe 03 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_04.aufgabe_03}
+Ermitteln Sie den Durchschnitt über alle gruppierten Einträge pro Mitarbeiter im Lager.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_04.aufgabe_03.loesung}
+\inputsql{sql/uebung_04/aufgabe_03.sql}
+
+% ############################### Aufgabe 04 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_04.aufgabe_04}
+Sie haben \texttt{SELECT}-Berechtigungen auf die Tabelle \texttt{PESCHM.METALS}. Lassen Sie sich den Inhalt der Tabelle oder die Beschreibung der Tabelle ausgeben. Zu erkennen ist, das die Tabelle eine neue Spalte \texttt{PRICE} enthält. Dieser Preis wird pro $1000mm\times1000mm\times1mm$ angesetzt. Berechnen Sie den Wert des Lagers.
+
+\begin{info-popup}
+  Anstatt die Tabelle \texttt{PESCHM.METALS} zu nutzen, können Sie auch einen Patch des Schemas nachladen. Laden Sie sich dazu die Datei \href{https://raw.githubusercontent.com/fh-trier/tgdb_ws1819/master/sql/patch_01.sql}{patch\_01.sql} herunter und starten Sie diesen mittels SQL-Plus.
+\end{info-popup}
+
+\subsubsection*{Lösung}
+\label{sec:uebung_04.aufgabe_04.loesung}
+\inputsql{sql/uebung_04/aufgabe_04.sql}
+
+% ############################### Aufgabe 05 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_04.aufgabe_05}
+Ermitteln Sie anhand der zusätzlichen Spalte \texttt{PRICE} aus Aufgabe \ref{sec:uebung_04.aufgabe_04} den Lagerwert pro Material. Ergänzen Sie ihre Abfrage aus Aufgabe \ref{sec:uebung_04.aufgabe_01}.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_04.aufgabe_05.loesung}
+\inputsql{sql/uebung_04/aufgabe_05.sql}
+
+% ############################### Aufgabe 06 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_04.aufgabe_06}
+Geben Sie alle Materialien aus, deren Wert größer ist aus der Durchschnittspreis des Lagers.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_04.aufgabe_06.loesung}
+\inputsql{sql/uebung_04/aufgabe_06.sql}
+
+% ############################### Aufgabe 07 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_04.aufgabe_07}
+Welche/r Mitarbeiter haben/hat den größten Warenwert im Lager verbucht?
+
+\subsubsection*{Lösung}
+\label{sec:uebung_04.aufgabe_07.loesung}
+\inputsql{sql/uebung_04/aufgabe_07.sql}
+
+% ############################### Aufgabe 08 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_04.aufgabe_08}
+Welcher Firma hat durch das eigene Lager den niedrigsten Warenwert verbucht? Lassen Sie sich alle Ansprechpartner dieser Firma ausgeben.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_04.aufgabe_08.loesung}
+\inputsql{sql/uebung_04/aufgabe_08.sql}
+
+% ############################### Aufgabe 09 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_04.aufgabe_09}
+Ermitteln Sie den Lagerwert pro Monat/Jahr und ordnen Sie die Ausgabe entsprechend der Gruppierung.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_04.aufgabe_09.loesung}
+\inputsql{sql/uebung_04/aufgabe_09.sql}
+
+% ############################### Aufgabe 10 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_04.aufgabe_10}
+Ermitteln Sie den Lagerwert pro Monat.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_04.aufgabe_10.loesung}
+\inputsql{sql/uebung_04/aufgabe_10.sql}

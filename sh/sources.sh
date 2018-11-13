@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-if [ -z ${ADBS_USER+x} ]; then
+if [ -z ${TGDB_USER+x} ]; then
   echo "TGDB_USER is unset!";
   exit 1
 fi
 
-if [ -z ${ADBS_PASSWD+x} ]; then
+if [ -z ${TGDB_PASSWD+x} ]; then
   echo "TGDB_PASSWD is unset!";
   exit 1
 fi
