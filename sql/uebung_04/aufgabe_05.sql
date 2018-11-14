@@ -14,7 +14,7 @@ CREATE OR REPLACE VIEW "JOINED_STORAGE" AS
     su.supplier_name,
     e.employee_firstname,
     e.employee_lastname,
-    SUM(st.surface_area / 1000000 * st.metal_thickness * m.price) AS "ASSET"
+    SUM(st.surface_area / 1000000 * st.metal_thickness * m.metal_price) AS "ASSET"
   FROM "STORAGE" ST
     INNER JOIN metals m ON (m.metal_ID = st.metal_ID)
     INNER JOIN shelfs sh ON (sh.shelf_ID = st.shelf_ID)
