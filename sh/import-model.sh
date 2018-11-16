@@ -14,7 +14,6 @@ STMTS="${STMTS}\n start ./sql/sqlplus-settings.sql"
 # IMPORT SCHEMA
 # --------------------------------------
 STMTS="${STMTS}\n start ./sql/schema_01.sql"
-STMTS="${STMTS}\n start ./sql/patch_01.sql"
 STMTS="${STMTS}\n start ./sql/permissions.sql"
 
 STMTS="${STMTS}\n EXIT;"
