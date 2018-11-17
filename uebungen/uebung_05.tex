@@ -7,31 +7,28 @@
 % ############################### Aufgabe 01 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_05.aufgabe_01}
-Sichere alle Spalten mit einem Primärschlüssel so ab, dass nur eine UUID verwendet werden kann.
-Hier nochmal exemplarisch eine UUID: \texttt{ff3d445a-550f-4080-aa61-cf7f29d6852c}
+Ändere die Vorwahl von +49 auf 0049 für alle Kontakte. Benutze Reguläre Ausdrücke.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_05.aufgabe_01.loesung}
 \inputsql{sql/uebung_05/aufgabe_01.sql}
 
+
 % ############################### Aufgabe 02 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_05.aufgabe_02}
-Sichern Sie die Tabelle \texttt{METALS} ab, dabei erhält jede Bedingung einen eigenen Constraint.
-\begin{itemize}
-  \item Vor negativen Preisen
-  \item Beschränkung der Metalltypen auf NULL, "Träne" und "Geschliffen"
-  \item Beschränkung der Metalleigenschaften auf NULL, "1.4301", "1.6582", "1.4452", "S235" und "S355"
-\end{itemize}
+Suche alle Vornamen der Kontakte die an der vierten Stelle ein a oder h haben. Darauf kann optional einmalig die Zeichenkette aus einem a, einem beliebigen Buchstaben und am Ende ein l folgen.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_05.aufgabe_02.loesung}
 \inputsql{sql/uebung_05/aufgabe_02.sql}
 
+
 % ############################### Aufgabe 03 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_05.aufgabe_03}
-Sichern Sie den Namen von Regalen so ab, dass nur Großbuchstaben und keine negativen Zahlen vorkommen können. Jede Bedingung wird als eigener Constraint definiert.
+Sichere alle Spalten mit einem Primärschlüssel so ab, dass nur eine UUID verwendet werden kann.
+Hier nochmal exemplarisch eine UUID: \texttt{ff3d445a-550f-4080-aa61-cf7f29d6852c}
 
 \subsubsection*{Lösung}
 \label{sec:uebung_05.aufgabe_03.loesung}
@@ -40,7 +37,12 @@ Sichern Sie den Namen von Regalen so ab, dass nur Großbuchstaben und keine nega
 % ############################### Aufgabe 04 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_05.aufgabe_04}
-Vermeiden Sie redundante E-Mail Adressen von Kontakten.
+Sichern Sie die Tabelle \texttt{METALS} ab, dabei erhält jede Bedingung einen eigenen Constraint.
+\begin{itemize}
+  \item Vor negativen Preisen
+  \item Beschränkung der Metalltypen auf NULL, "Träne" und "Geschliffen"
+  \item Beschränkung der Metalleigenschaften auf NULL, "1.4301", "1.6582", "1.4452", "S235" und "S355"
+\end{itemize}
 
 \subsubsection*{Lösung}
 \label{sec:uebung_05.aufgabe_04.loesung}
@@ -49,7 +51,7 @@ Vermeiden Sie redundante E-Mail Adressen von Kontakten.
 % ############################### Aufgabe 05 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_05.aufgabe_05}
-Erzeugen Sie einen zusätzlichen Index für die E-Mail Adressen von Kontakten.
+Sichern Sie den Namen von Regalen so ab, dass nur Großbuchstaben und keine negativen Zahlen vorkommen können. Jede Bedingung wird als eigener Constraint definiert.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_05.aufgabe_05.loesung}
@@ -58,8 +60,18 @@ Erzeugen Sie einen zusätzlichen Index für die E-Mail Adressen von Kontakten.
 % ############################### Aufgabe 06 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_05.aufgabe_06}
-Erstellen Sie zwischen Ansprechpartnern (\texttt{CONTACTS}) und Lieferanten \texttt{SUPPLIERS} eine Beziehung. Entscheiden Sie über das Löschverhalten dieser Beziehung selbst.
+Vermeiden Sie redundante E-Mail Adressen von Kontakten.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_05.aufgabe_06.loesung}
 \inputsql{sql/uebung_05/aufgabe_06.sql}
+
+
+% ############################### Aufgabe 07 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_05.aufgabe_07}
+Erstellen Sie zwischen Ansprechpartnern (\texttt{CONTACTS}) und Lieferanten \texttt{SUPPLIERS} eine Beziehung. Entscheiden Sie über das Löschverhalten dieser Beziehung selbst.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_05.aufgabe_07.loesung}
+\inputsql{sql/uebung_05/aufgabe_07.sql}
