@@ -13,9 +13,16 @@ STMTS="${STMTS}\n start ./sql/sqlplus-settings.sql"
 # --------------------------------------
 # EXEXUTE SOLUTIONS
 # --------------------------------------
-for FILE in `ls ./sql/uebung_*/*`; do
-  STMTS="${STMTS}\n start ${FILE}"
-done
+if [ -z ${FOLDER+x} ]; then
+  for FILE in `ls ./sql/uebung_*/*`; do
+    STMTS="${STMTS}\n start ${FILE}"
+  done
+else
+  for FILE in `ls ./sql/${FOLDER}/*`; do
+    STMTS="${STMTS}\n start ${FILE}"
+  done
+fi
+
 
 STMTS="${STMTS}\n EXIT;"
 

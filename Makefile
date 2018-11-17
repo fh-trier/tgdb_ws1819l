@@ -115,4 +115,4 @@ import-model:
 	./sh/import-model.sh
 
 execute-solutions:
-	./sh/execute-solutions.sh
+	./sh/execute-solutions.sh FOLDER=${FOLDER}
