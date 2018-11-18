@@ -50,7 +50,7 @@ CREATE TABLE "EMPLOYEES" (
   "EMPLOYEE_LASTNAME"   VARCHAR2(32)                  NOT NULL,
   "EMPLOYEE_BIRTHDAY"   DATE                          NOT NULL,
   "EMPLOYEE_HIREDATE"   DATE                          NOT NULL,
-  "SURFACE_AREA"        VARCHAR2(92)                  GENERATED ALWAYS AS (LOWER(EMPLOYEE_FIRSTNAME) || '.' || LOWER(EMPLOYEE_LASTNAME) || '@metallhandel-trier.de'),
+  "EMPLOYEE_MAIL"       VARCHAR2(92)                  GENERATED ALWAYS AS (LOWER(EMPLOYEE_FIRSTNAME) || '.' || LOWER(EMPLOYEE_LASTNAME) || '@metallhandel-trier.de'),
   "EMPLOYEE_STREET"     VARCHAR2(32)                  NOT NULL,
   "CITY_ID"             CHAR(36)                      NOT NULL,
   "CREATION_DATE"       DATE        DEFAULT SYSDATE   NOT NULL,
