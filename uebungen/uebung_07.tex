@@ -1,0 +1,71 @@
+% ##########################################################################
+% ############################# Übungsblatt 07 #############################
+% ##########################################################################
+\section{Übungsblatt}
+\label{sec:uebung_07}
+
+% ############################### Aufgabe 01 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_07.aufgabe_01}
+Erstellen Sie eine Funktion, die anhand eines Parameters den Umsatz eines Lieferanten ausgibt, die der Lieferant durch einkauf von Materialien durch die eigene Firma erzielt hat.
+
+\begin{example-popup}
+  \begin{sqlcode}
+    EXEC GET_SUPPLIER_SALES_VOLUME ('81d912b3-a3a5-49ff-9c8d-599fcd12aad9');
+  \end{sqlcode}
+  \texttt{Stahlhandel Saarlouis E.K. hat einen Umsatz von 54741.54 erziehlt.}
+\end{example-popup}
+
+\subsubsection*{Lösung}
+\label{sec:uebung_07.aufgabe_01.loesung}
+\inputsql{sql/uebung_07/aufgabe_01.sql}
+
+% ############################### Aufgabe 02 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_07.aufgabe_02}
+Erstellen Sie eine Funktion, die anhand von Parametern einen neuen Mitarbeiter in der Datenbank anlegt.
+
+\begin{example-popup}
+  \begin{sqlcode}
+    EXEC INSERT_EMPLOYEE('Hans', 'Wurst', TO_DATE('1984-04-30', 'YYYY-MM-DD'), SYSDATE, 'Hauptstraße 100', '50667');
+  \end{sqlcode}
+\end{example-popup}
+
+Stellen Sie sicher, dass die übergebenen Parameter valide sind und versuche Sie Fehler abzufangen.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_07.aufgabe_02.loesung}
+\inputsql{sql/uebung_07/aufgabe_02.sql}
+
+% ############################### Aufgabe 03 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_07.aufgabe_03}
+Erstellen Sie eine Funktion, die einen \sqlinline{CURSOR} als Parameter erhält um die Ausgabe der Mitarbeiter auf \texttt{STDOUT} benutzerdefiniert anzupassen.
+
+\begin{example-popup}
+  \inputsqlnolinenos{./sql/uebung_07/aufgabe_03_snippet.sql}
+\end{example-popup}
+
+Stellen Sie sicher, dass die übergebenen Parameter valide sind und versuche Sie Fehler abzufangen.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_07.aufgabe_03.loesung}
+\inputsql{sql/uebung_07/aufgabe_03.sql}
+
+% ############################### Aufgabe 04 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_07.aufgabe_04}
+Erstellen Sie eine Prozedur, die die Anzahl an Lieferanten pro Land/Bundesland/Stadt/PLZ für Deutschaldn ausgibt. Dabei soll zusätzlich die Anzahl an Ansprechpartnern ausgegeben werden und das Datum, andem das letzte mal Ware von den Umternehmen bezogen wurde.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_07.aufgabe_04.loesung}
+\inputsql{sql/uebung_07/aufgabe_04.sql}
+
+% ############################### Aufgabe 05 ###############################
+\subsection{Aufgabe}
+\label{sec:uebung_07.aufgabe_05}
+Ändere die Aufgabe \ref{sec:uebung_07.aufgabe_04} so ab, dass die Auswahl des Bundeslandes durch einen Parameter eingerenzt werden kann. Nutze dazu Reguläre Ausdrücke.
+
+\subsubsection*{Lösung}
+\label{sec:uebung_07.aufgabe_05.loesung}
+\inputsql{sql/uebung_07/aufgabe_05.sql}
