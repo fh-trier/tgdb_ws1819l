@@ -7,7 +7,7 @@
 % ############################### Aufgabe 01 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_07.aufgabe_01}
-Erstellen Sie eine Funktion, die anhand eines Parameters den Umsatz eines Lieferanten ausgibt, die der Lieferant durch einkauf von Materialien durch die eigene Firma erzielt hat.
+Erstellen Sie eine Funktion, die anhand eines Parameters den Umsatz eines Lieferanten ausgibt, die der Lieferant durch Verkauf von Materialien erzielt hat.
 
 \begin{example-popup}
   \begin{sqlcode}
@@ -18,7 +18,7 @@ Erstellen Sie eine Funktion, die anhand eines Parameters den Umsatz eines Liefer
 
 \subsubsection*{Lösung}
 \label{sec:uebung_07.aufgabe_01.loesung}
-\inputsql{sql/uebung_07/aufgabe_01.sql}
+\inputsql{sql/uebung_07/aufgabe_01.plsql}
 
 % ############################### Aufgabe 02 ###############################
 \subsection{Aufgabe}
@@ -35,7 +35,7 @@ Stellen Sie sicher, dass die übergebenen Parameter valide sind und versuche Sie
 
 \subsubsection*{Lösung}
 \label{sec:uebung_07.aufgabe_02.loesung}
-\inputsql{sql/uebung_07/aufgabe_02.sql}
+\inputsql{sql/uebung_07/aufgabe_02.plsql}
 
 % ############################### Aufgabe 03 ###############################
 \subsection{Aufgabe}
@@ -43,23 +43,23 @@ Stellen Sie sicher, dass die übergebenen Parameter valide sind und versuche Sie
 Erstellen Sie eine Funktion, die einen \sqlinline{CURSOR} als Parameter erhält um die Ausgabe der Mitarbeiter auf \texttt{STDOUT} benutzerdefiniert anzupassen.
 
 \begin{example-popup}
-  \inputsqlnolinenos{./sql/uebung_07/aufgabe_03_snippet.sql}
+  \inputsqlnolinenos{./sql/uebung_07/aufgabe_03_snippet.plsql}
 \end{example-popup}
 
-Stellen Sie sicher, dass die übergebenen Parameter valide sind und versuche Sie Fehler abzufangen.
+Stellen Sie sicher, dass die übergebenen Parameter valide sind und versuche Sie Fehler mit einem \sqlinline{BEGIN, EXCEPTION, END}-Block abzufangen.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_07.aufgabe_03.loesung}
-\inputsql{sql/uebung_07/aufgabe_03.sql}
+\inputsql{sql/uebung_07/aufgabe_03.plsql}
 
 % ############################### Aufgabe 04 ###############################
 \subsection{Aufgabe}
 \label{sec:uebung_07.aufgabe_04}
-Erstellen Sie eine Prozedur, die die Anzahl an Lieferanten pro Land/Bundesland/Stadt/PLZ für Deutschaldn ausgibt. Dabei soll zusätzlich die Anzahl an Ansprechpartnern ausgegeben werden und das Datum, andem das letzte mal Ware von den Umternehmen bezogen wurde.
+Erstellen Sie eine Prozedur, die die Anzahl an Lieferanten pro Land/Bundesland/Stadt/PLZ für Deutschland ausgibt. Dabei soll zusätzlich die Anzahl an Ansprechpartnern ausgegeben werden und das Datum, an dem das letzte mal Ware von den Umternehmen bezogen wurde.
 
 \subsubsection*{Lösung}
 \label{sec:uebung_07.aufgabe_04.loesung}
-\inputsql{sql/uebung_07/aufgabe_04.sql}
+\inputsql{sql/uebung_07/aufgabe_04.plsql}
 
 % ############################### Aufgabe 05 ###############################
 \subsection{Aufgabe}
@@ -68,4 +68,4 @@ Erstellen Sie eine Prozedur, die die Anzahl an Lieferanten pro Land/Bundesland/S
 
 \subsubsection*{Lösung}
 \label{sec:uebung_07.aufgabe_05.loesung}
-\inputsql{sql/uebung_07/aufgabe_05.sql}
+\inputsql{sql/uebung_07/aufgabe_05.plsql}
