@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
-if [ -z ${TGDB_USER+x} ]; then
-  echo "TGDB_USER is unset!";
+if [ -z ${DB_USER+x} ]; then
+  echo "DB_USER is unset!";
   exit 1
 fi
 
-if [ -z ${TGDB_PASSWD+x} ]; then
-  echo "TGDB_PASSWD is unset!";
+if [ -z ${DB_PASS+x} ]; then
+  echo "DB_PASS is unset!";
   exit 1
 fi
 
-if [ -z ${TGDB_HOST+x} ]; then
-  echo "TGDB_HOST is unset!";
+if [ -z ${DB_HOST+x} ]; then
+  echo "DB_HOST is unset!";
   exit 1
 fi
 

@@ -24,6 +24,6 @@ echo -e ${STMTS}
 
 
 # Execute SQL-Files
-${SQLPLUS} -S ${TGDB_USER}/${TGDB_PASSWD}@${TGDB_HOST} << HERE
+${SQLPLUS} -S ${DB_USER}/${DB_PASS}@${DB_HOST} << HERE
   $(echo -e ${STMTS})
 HERE
