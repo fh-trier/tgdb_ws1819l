@@ -1,4 +1,4 @@
-# Tutorium Grundlagen Datenbanken WS1819
+# Tutorium Grundlagen Datenbanken WS1819 [![Build Status](https://travis-ci.com/fh-trier/tgdb_ws1819.svg?branch=master)](https://travis-ci.com/fh-trier/tgdb_ws1819l)
 
 ## SQL
 Das Schema kann mittels `make import-model` geladen werden. Dazu müssen allerdings die Umgebungsvariablen `TGDB_HOST`, `TGDB_USER` und `TGDB_PASSWD` gesetzt sein.
