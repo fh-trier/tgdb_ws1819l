@@ -5,20 +5,26 @@
 UID?=$(shell id --user)
 GID?=$(shell id --group)
 
-# VERSION
+# VERSION / RELEASE
 # If no version is specified as a parameter of make, the last git hash
 # value is taken.
-VERSION?=$(shell git rev-parse --short HEAD)-git
+VERSION?=$(shell git describe --abbrev=0)+hash.$(shell git rev-parse --short HEAD)
+RELEASE?=1
 
-# IMAGE I
-# MAGE defines the docker image to compile latex into a pdf file.
-IMAGE:=volkerraschek/docker-latex:latest-ubuntu18.04
+# CONTAINER_RUNTIME / BUILD_IMAGE
+# The CONTAINER_RUNTIME variable will be used to specified the path to a
+# container runtime. This is needed to start and run a container image defined
+# by the BUILD_IMAGE variable. The BUILD_IMAGE container serve as build
+# environment to execute the different make steps inside. Therefore, the bulid
+# environment requires all necessary dependancies to build this project.
+CONTAINER_RUNTIME?=$(shell which docker)
+BUILD_IMAGE:=volkerraschek/container-latex:latest-ubuntu18.04
 
 # Input tex-file and output pdf-file
-FILE:=index
-PDF_FILE:=${FILE}.pdf
-IDX_FILE:=${FILE}.idx
-TEX_FILE:=${FILE}.tex
+FILE_NAME=index
+IDX_TARGET:=${FILE_NAME:%=%.idx}
+PDF_TARGET:=${FILE_NAME:%=%.pdf}
+TEX_TARGET:=${FILE_NAME:%=%.tex}
 
 # HARDLINK_VARIABLES
 # FSD:           Defines the general storage location for study documents.
@@ -29,90 +35,111 @@ FSD?=${HOME}/Dokumente/Studium/Fachschaftsdaten
 HARDLINK_PATH:=${FSD}/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819
 HARDLINK_FILE:=Tutorium_WS1819.pdf
 
-# latexmk
-# compile the pdf file with latexmk
-latexmk:
+
+# PDF_TARGET
+# ==============================================================================
+${PDF_TARGET}: latexmk/${PDF_TARGET}
+
+
+PHONY:=latexmk/${PDF_TARGET}
+latexmk/${PDF_TARGET}:
 	latexmk \
 		-shell-escape \
 		-synctex=1 \
 		-interaction=nonstopmode \
 		-file-line-error \
-		-pdf ${TEX_FILE}
+		-pdf ${TEX_TARGET}
 
-# pdflatex
-# compile the pdf file with pdflatex
-pdflatex: makeglossar makeindex
+PHONY+=pdflatex/${PDF_TARGET}
+pdflatex/${PDF_TARGET}:
+
+	makeglossaries ${FILE_NAME}
+	makeindex ${FILE_NAME}
+
 	pdflatex \
 		-shell-escape \
 		-synctex=1 \
 		-interaction=nonstopmode \
-		-enable-write18 ${TEX_FILE}
+		-enable-write18 ${TEX_TARGET}
 
-# makeglossar
-# generate the glossar
-makeglossar:
-	makeglossaries ${FILE}
 
-# makeindex
-# generate the index
-makeindex:
-	makeindex ${IDX_FILE}
-
-# docker-latexmk
-# compile the pdf file with latexmk inside a docker container
-container-latexmk:
-	docker run \
-		--rm \
-		--user=${UID}:${GID} \
-		--net=none \
-		--volume=${PWD}:/data ${IMAGE} \
-		make latexmk VERSION=${VERSION}
-
-# docker-pdflatex
-# compile the pdf file with pdflatex inside a docker container
-container-pdflatex:
-	docker run \
-		--rm \
-		--user=${UID}:${GID} \
-		--net=none \
-		--volume=${PWD}:/data ${IMAGE} \
-		make pdflatex VERSION=${VERSION}
-
-# clean
-# remove all files which are ignored about .gitignore
+# CLEAN
+# ==============================================================================
+PHONY+=clean
 clean:
 	git clean -fX
 
-# create-hardlink
-# Create a hardlink of the generated pdf file into a different directory.
-# It's could use to create a hardlink from the compiled pdf into in your documents
-# directory.
-create-hardlink: delete-hardlink
+
+# CONTAINER STEPS - PDF_TARGET
+# ==============================================================================
+container-run/${PDF_TARGET}:
+	$(MAKE) container-run COMMAND=$(subst container-run/,,$@)
+
+container-run/latexmk/${PDF_TARGET}:
+	$(MAKE) container-run COMMAND=$(subst container-run/,,$@)
+
+container-run/pdflatex/${PDF_TARGET}:
+	$(MAKE) container-run COMMAND=$(subst container-run/,,$@)
+
+
+# CONTAINER STEPS - CLEAN
+# ==============================================================================
+container-run/clean:
+	$(MAKE) container-run COMMAND=$(subst container-run/,,$@)
+
+
+# GENERAL CONTAINER COMMAND
+# ==============================================================================
+PHONY+=container-run
+container-run:
+	${CONTAINER_RUNTIME} run \
+		--rm \
+		--user ${UID}:${GID} \
+		--volume $(shell pwd):/workspace \
+			${BUILD_IMAGE} \
+				make ${COMMAND} \
+					VERSION=${VERSION} \
+					RELEASE=${RELEASE}
+
+
+# HARDLINK
+# ==============================================================================
+PHONY+=hardlink/create
+hardlink/create: hardlink/delete
 	if [ ! -d ${HARDLINK_PATH} ]; \
 	then \
 		mkdir -p ${HARDLINK_PATH}; \
 	fi;
 
-	if [ ! -f ${PDF_FILE} ]; \
+	if [ ! -f ${PDF_TARGET} ]; \
 	then \
 		echo "Compile the PDF file first!"; \
 	fi;
 
-	ln ${PDF_FILE} ${HARDLINK_PATH}/${HARDLINK_FILE}
+	ln ${PDF_TARGET} ${HARDLINK_PATH}/${HARDLINK_FILE}
 
-# delete-hardlink
-# Delete the hardlink
-delete-hardlink:
+PHONY+=hardlink/delete
+hardlink/delete:
 	if [ -f ${HARDLINK_PATH}/${HARDLINK_FILE} ]; \
 	then \
 		rm -R ${HARDLINK_PATH}/${HARDLINK_FILE}; \
 	fi;
 
-destroy-schema:
+
+# DATABASE-OPERATIONS
+# ==============================================================================
+db/delete-scheme:
 	./sh/delete-schema.sh
 
-import-model:
+db/import-model:
 	./sh/import-model.sh
 
-execute-solutions:
+db/execute-solutions:
 	./sh/execute-solutions.sh FOLDER=${FOLDER}
+
+
+# PHONY
+# ==============================================================================
+# Declare the contents of the PHONY variable as phony.  We keep that information
+# in a variable so we can use it in if_changed.
+.PHONY: ${PHONY}
