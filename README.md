@@ -1,8 +1,9 @@
 # Tutorium Grundlagen Datenbanken WS1819
 
-[![Build Status](https://travis-ci.com/fh-trier/tgdb_ws1819.svg?branch=master)](https://travis-ci.com/fh-trier/tgdb_ws1819)
+[![Build Status](https://drone.cryptic.systems/api/badges/fh-trier/tgdb_ws1819/status.svg)](https://drone.cryptic.systems/fh-trier/tgdb_ws1819)
 
 ## SQL
+
 Das Schema kann mittels `make import-model` geladen werden. Dazu müssen
 allerdings die Umgebungsvariablen `TGDB_HOST`, `TGDB_USER` und `TGDB_PASSWD`
 gesetzt sein.
@@ -13,6 +14,7 @@ explizit ausführen kann die Variable `FOLDER` gesetzt werden. Hier ein Beispiel
 `make execute-solutions FOLDER=uebung_05`.
 
 ## Latex
+
 Um aus den im Repository hinterlegten Latex-Dateien ein PDF-Dokument zu erzeugen
 wird ein Latex-Compilier benötigt. Der Latex-Compiler kann manuell für jedes
 Betriebssystem installiert werden. Siehe Anleitung auf
