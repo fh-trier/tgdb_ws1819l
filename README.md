@@ -1,6 +1,6 @@
 # Tutorium Grundlagen Datenbanken WS1819
 
-[![Build Status](https://drone.cryptic.systems/api/badges/fh-trier/tgdb_ws1819/status.svg)](https://drone.cryptic.systems/fh-trier/tgdb_ws1819)
+[![Build Status](https://drone.cryptic.systems/api/badges/fh-trier/tgdb_ws1819l/status.svg)](https://drone.cryptic.systems/fh-trier/tgdb_ws1819l)
 
 ## SQL
 

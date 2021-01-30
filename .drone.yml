@@ -12,13 +12,13 @@ steps:
   image: appleboy/drone-git-push:latest
   settings:
     branch: master
-    remote: ssh://git@github.com/fh-trier/tgdb_ws1819.git
+    remote: ssh://git@github.com/fh-trier/tgdb_ws1819l.git
     force: true
     ssh_key:
       from_secret: ssh-key
   when:
     repo:
-    - fh-trier/tgdb_ws1819
+    - fh-trier/tgdb_ws1819l
     branch:
     - master
     event:
@@ -27,9 +27,9 @@ steps:
 - name: push-nextcloud
   image: volkerraschek/container-latex:latest-archlinux
   commands:
-  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file index.pdf --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/Tutorium_WS1819.pdf
-  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file sql/schema_01.sql --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/schema.sql
-  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file sql/sqlplus-settings.sql --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/sqlplus-settings.sql
+  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file index.pdf --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/Tutorium_WS1819_-_Loesungen.pdf
+  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file sql/schema_01.sql --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/schema_-_Loesungen.sql
+  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file sql/sqlplus-settings.sql --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/sqlplus-settings_-_Loesungen.sql
   environment:
     CLOUD_URL:
       from_secret: cloud_url
@@ -39,7 +39,7 @@ steps:
       from_secret: webdav_password
   when:
     repo:
-    - fh-trier/tgdb_ws1819
+    - fh-trier/tgdb_ws1819l
     branch:
     - master
     event:
