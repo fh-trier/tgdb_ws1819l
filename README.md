@@ -4,11 +4,11 @@
 
 ## SQL
 
-Das Schema kann mittels `make import-model` geladen werden. Dazu müssen
-allerdings die Umgebungsvariablen `TGDB_HOST`, `TGDB_USER` und `TGDB_PASSWD`
+Das Schema kann mittels `make db/import-model` geladen werden. Dazu müssen
+allerdings die Umgebungsvariablen `DB_HOST`, `DB_USER` und `DB_PASSWD`
 gesetzt sein.
 
-Mit dem Parameter `make execute-solutions` werden alle Dateien innerhalb des
+Mit dem Parameter `make db/execute-solutions` werden alle Dateien innerhalb des
 Ordners `uebungen` auf der Datenbank ausgeführt. Möchte man einen Unterordner
 explizit ausführen kann die Variable `FOLDER` gesetzt werden. Hier ein Beispiel
 `make execute-solutions FOLDER=uebung_05`.
@@ -28,8 +28,8 @@ $ docker run \
   --rm \
   --user="$(shell id -u):$(shell id -g)" \
   --net="none" \
-  --volume="${PWD}:/workspace" volkerraschek/container-latex:latest-ubuntu18.04 \
-  make latexmk
+  --volume="${PWD}:/workspace" volkerraschek/container-latex:latest-archlinux \
+  make
 ```
 
 ## Editoren
