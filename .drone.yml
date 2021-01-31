@@ -1,100 +1,14 @@
+---
 kind: pipeline
 type: docker
-name: latex
+name: latest
 
 steps:
-
-# BUILD
-#######################################################################
-- name: build-latest
+- name: build
   image: volkerraschek/container-latex:latest-archlinux
   commands:
   - make latexmk/index.pdf
-
-- name: build-tagged
-  image: volkerraschek/container-latex:latest-archlinux
-  commands:
-  - make latexmk/index.pdf
-  environment:
-    VERSION: ${DRONE_TAG}
-  when:
-    repo:
-    - fh-trier/tgdb_ws1819
-    event:
-    - tag
-
-# PUSH NEXTCLOUD
-#######################################################################
-
-- name: push-latest-nextcloud
-  image: volkerraschek/container-latex:latest-archlinux
-  commands:
-  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file index.pdf --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/Tutorium_WS1819.pdf
-  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file sql/schema_01.sql --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/schema.sql
-  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file sql/sqlplus-settings.sql --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/sqlplus-settings.sql
-  environment:
-    CLOUD_URL:
-      from_secret: cloud_url
-    WEBDAV_USER:
-      from_secret: webdav_username
-    WEBDAV_PASSWORD:
-      from_secret: webdav_password
-  when:
-    repo:
-    - fh-trier/tgdb_ws1819
-    event:
-    - push
-    - cron
-
-- name: push-tagged-nextcloud
-  image: volkerraschek/container-latex:latest-archlinux
-  commands:
-  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file index.pdf --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/Tutorium_WS1819_${DRONE_TAG}.pdf
-  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file sql/schema_01.sql --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/schema_${DRONE_TAG}.sql
-  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file sql/sqlplus-settings.sql --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/sqlplus-settings_${DRONE_TAG}.sql
-  environment:
-    CLOUD_URL:
-      from_secret: cloud_url
-    WEBDAV_USER:
-      from_secret: webdav_username
-    WEBDAV_PASSWORD:
-      from_secret: webdav_password
-  when:
-    repo:
-    - fh-trier/tgdb_ws1819
-    event:
-    - tag
-
-# PUSH GITEA
-#######################################################################
-
-- name: push-tagged-gitea
-  image: plugins/gitea-release
-  settings:
-    base_url: https://git.cryptic.systems
-    api_key:
-      from_secret: gitea_token
-    files:
-    - index.pdf
-    - sql/schema_01.sql
-    - sql/sqlplus-settings.sql
-    checksum:
-    - md5
-    - sha1
-    - sha256
-    - sha512
-    - adler32
-    - crc32
-  when:
-    repo:
-    - fh-trier/tgdb_ws1819
-    event:
-    - tag
-
-# PUSH V-LAUFWERK
-#######################################################################
-
-- name: push-latest-fhtrier
+- name: push-fhtrier
   image: appleboy/drone-scp:1.6.2
   settings:
     host: ssh.hochschule-trier.de
@@ -113,14 +27,12 @@ steps:
   when:
     repo:
     - fh-trier/tgdb_ws1819
+    branch:
+    - master
     event:
-    - push
     - cron
-
-# PUSH GITHUB
-#######################################################################
-
-- name: push-latest-commit
+    - push
+- name: push-github
   image: appleboy/drone-git-push:latest
   settings:
     branch: master
@@ -131,14 +43,33 @@ steps:
   when:
     repo:
     - fh-trier/tgdb_ws1819
+    branch:
+    - master
     event:
-    - push
     - cron
-
-# NOTIFY
-###############################################################################
-
-- name: notify
+    - push
+- name: push-nextcloud
+  image: volkerraschek/container-latex:latest-archlinux
+  commands:
+  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file index.pdf --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/Tutorium_WS1819.pdf
+  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file sql/schema_01.sql --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/schema.sql
+  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file sql/sqlplus-settings.sql --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/sqlplus-settings.sql
+  environment:
+    CLOUD_URL:
+      from_secret: cloud_url
+    WEBDAV_USER:
+      from_secret: webdav_username
+    WEBDAV_PASSWORD:
+      from_secret: webdav_password
+  when:
+    repo:
+    - fh-trier/tgdb_ws1819
+    branch:
+    - master
+    event:
+    - cron
+    - push
+- name: pipeline-notification
   image: drillster/drone-email
   environment:
     PLUGIN_HOST:
@@ -153,3 +84,66 @@ steps:
     status:
     - changed
     - failure
+
+trigger:
+  event:
+    exclude:
+    - tag
+
+---
+kind: pipeline
+type: docker
+name: tagged
+
+steps:
+- name: build
+  image: volkerraschek/container-latex:latest-archlinux
+  commands:
+  - make latexmk/index.pdf VERSION=${DRONE_TAG}
+- name: push-nextcloud
+  image: volkerraschek/container-latex:latest-archlinux
+  commands:
+  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file index.pdf --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/Tutorium_WS1819_${DRONE_TAG}.pdf
+  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file sql/schema_01.sql --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/schema_${DRONE_TAG}.sql
+  - curl --fail --user $WEBDAV_USER:$WEBDAV_PASSWORD --upload-file sql/sqlplus-settings.sql --location $CLOUD_URL/remote.php/dav/files/$WEBDAV_USER/Dokumente/Studium/Fachschaftdaten/DB_1_-_Grundlagen_Datenbanken/Tutorien/Tutorium_WS1819/sqlplus-settings_${DRONE_TAG}.sql
+  environment:
+    CLOUD_URL:
+      from_secret: cloud_url
+    WEBDAV_USER:
+      from_secret: webdav_username
+    WEBDAV_PASSWORD:
+      from_secret: webdav_password
+- name: telegram-notification
+  image: appleboy/drone-telegram:latest
+  settings:
+    token:
+      from_secret: telegram_token
+    to:
+      from_secret: telegram_user_id
+    message: >
+      Version ${DRONE_TAG} of the index.pdf file has been successfully released!
+      Get the new document over the network drive V or compile the
+      document by your self. Take a look into the README for more details:
+
+      https://github.com/fh-trier/tgdb_ws1819/blob/${DRONE_TAG}/README.md
+- name: pipeline-notification
+  image: drillster/drone-email
+  environment:
+    PLUGIN_HOST:
+      from_secret: smtp_host
+    PLUGIN_USERNAME:
+      from_secret: smtp_username
+    PLUGIN_PASSWORD:
+      from_secret: smtp_password
+    PLUGIN_FROM:
+      from_secret: smtp_mail_address
+  when:
+    status:
+    - changed
+    - failure
+
+trigger:
+  event:
+  - tag
+  repo:
+  - fh-trier/tgdb_ws1819
